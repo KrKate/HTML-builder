@@ -25,15 +25,15 @@ fs.writeFile(path.join(__dirname, 'text2.txt'), '', (err) => {
 console.log('Здравствуйте! Введите текст и он запишется в файл "text2.txt"... ');
 // Вывожу в консоль либо exit, либо текст для записи
 rl.on('line', (input) => {
-    if (input === 'exit') {
-        rl.close();
-      } else {
-        fs.appendFile(path.join(__dirname, 'text2.txt'), input, (err) => {
-          if (err) throw err;
-        });
-        rl.prompt();
-      }
+  if (input === 'exit') {
+    rl.close();
+  } else {
+    fs.appendFile(path.join(__dirname, 'text2.txt'), input + '\n', (err) => {
+      if (err) throw err;
     });
+    rl.prompt();
+  }
+});
 
 // Завершение работы программы
 rl.on('close', () => {
