@@ -14,7 +14,7 @@ const { promises: fsPromises } = require('fs');
 
 async function copyDir(directory, copyDirectory) {
   try {
-    await fsPromises.rmdir(copyDirectory, {recursive: true});
+    await fsPromises.rm(copyDirectory, {recursive: true});
     console.log('Папка copy-files удалена, т.к. была создана ранее');
   } catch (err) {}
 
